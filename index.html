@@ -126,10 +126,10 @@
 <body>
     <div id="canvas-container"></div>
     
-    <!-- YouTube Player - ITO ANG MAGPPLAY NG MUSIC (SURE GAGANA) -->
+    <!-- YouTube Player -->
     <div id="youtube-player"></div>
     
-    <!-- Simple message -->
+    <!-- Message Box -->
     <div class="message-box">
         <h1>Hi Ganda! 💕</h1>
         <div class="flowers">🌸 🌷 🌺</div>
@@ -146,7 +146,7 @@
     
     <!-- Music Button -->
     <button id="musicBtn" class="music-btn">
-        🎵 I-play ang "Kay Ganda Mo" - Frank Ely 🎵
+        🎵 I-play ang "Ito Lamang" - Project: Romeo 🎵
     </button>
     
     <!-- Hint -->
@@ -170,18 +170,17 @@
     <script src="https://www.youtube.com/iframe_api"></script>
 
     <script>
-        // ========== YOUTUBE MUSIC - 100% GUMAGANA! ==========
-        // Ito po ay "Kay Ganda Mo" by Frank Ely (instrumental version)
-        // Kung hindi po ito exact song, i-search nyo po sa YouTube at palitan ang VIDEO_ID
+        // ========== YOUTUBE MUSIC - "ITO LAMANG" by PROJECT: ROMEO ==========
+        // Video ID para sa "Ito Lamang" ni Project: Romeo
+        // Source: https://www.youtube.com/watch?v=slva-QsmjL4
         
         let player;
         let isMusicPlaying = false;
         const musicBtn = document.getElementById('musicBtn');
         
-        // YouTube Video ID - hanap po tayo ng romantic na kanta
-        // Ito ay "Perfect" by Ed Sheeran instrumental (romantic) 
-        // PALITAN NYO PO ITO ng YouTube link ng "Kay Ganda Mo" kung alam nyo
-        const VIDEO_ID = 'Fcynyrg2304';
+        // YouTube Video ID para sa "Ito Lamang" - Project: Romeo
+        // Kinuha mula sa link: slva-QsmjL4
+        const VIDEO_ID = 'slva-QsmjL4';
         
         // YouTube API ready
         function onYouTubeIframeAPIReady() {
@@ -200,7 +199,8 @@
                     'loop': 1,
                     'modestbranding': 1,
                     'playsinline': 1,
-                    'rel': 0
+                    'rel': 0,
+                    'playlist': VIDEO_ID // Para mag-loop
                 },
                 events: {
                     'onReady': onPlayerReady,
@@ -213,21 +213,21 @@
         function onPlayerReady(event) {
             console.log("YouTube Player Ready!");
             musicBtn.disabled = false;
-            musicBtn.textContent = '🎵 I-play ang "Kay Ganda Mo" - Frank Ely 🎵';
+            musicBtn.textContent = '🎵 I-play ang "Ito Lamang" - Project: Romeo 🎵';
         }
         
         function onPlayerStateChange(event) {
             // Update button text based on player state
             if (event.data === YT.PlayerState.PLAYING) {
                 isMusicPlaying = true;
-                musicBtn.innerHTML = '🔊 Now Playing: Kay Ganda Mo 🔊';
-                console.log("Music playing!");
+                musicBtn.innerHTML = '🔊 Now Playing: Ito Lamang - Project: Romeo 🔊';
+                console.log("Music playing: Ito Lamang");
             } else if (event.data === YT.PlayerState.PAUSED) {
                 isMusicPlaying = false;
-                musicBtn.innerHTML = '🎵 I-play ang "Kay Ganda Mo" - Frank Ely 🎵';
+                musicBtn.innerHTML = '🎵 I-play ang "Ito Lamang" - Project: Romeo 🎵';
             } else if (event.data === YT.PlayerState.ENDED) {
                 isMusicPlaying = false;
-                musicBtn.innerHTML = '🎵 I-play ang "Kay Ganda Mo" - Frank Ely 🎵';
+                musicBtn.innerHTML = '🎵 I-play ang "Ito Lamang" - Project: Romeo 🎵';
             }
         }
         
@@ -298,7 +298,7 @@
                 noStroke();
                 fill(f.color[0], f.color[1], f.color[2]);
                 
-                // Swaying
+                // Swaying effect
                 let swayX = f.x + sin(frameCount * 0.02 + f.angle) * 2;
                 let swayY = f.y - 40 + cos(frameCount * 0.02) * 1;
                 
@@ -371,8 +371,7 @@
             resizeCanvas(windowWidth, windowHeight);
         }
         
-        console.log("Ready! Click the pink button for music!");
+        console.log("Ready! Click the pink button for music - 'Ito Lamang' by Project: Romeo");
     </script>
 </body>
-
 </html>
